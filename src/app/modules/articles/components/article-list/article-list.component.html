@@ -1,0 +1,22 @@
+<main class="container border-success">
+    <div class="filter">
+        <p class="filter-text">Filter by keywords</p>
+        <input
+            #inp
+            (input)="filter(inp.value)"
+        >
+        <p class="filter-text">Results:{{filteredList.length}}</p>
+    </div>
+    <mat-grid-list cols="3">
+        <mat-grid-tile *ngFor="let item of filteredList">
+            <app-article-card
+                [id]="item.id"
+                [title]="item.title"
+                [url]="item.url"
+                [imageUrl]="item.imageUrl"
+                [summary]="item.summary"
+                [updatedAt]="item.updatedAt"
+            ></app-article-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</main>

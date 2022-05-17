@@ -1,0 +1,15 @@
+<mat-card class="example-card">
+    <img
+        mat-card-image
+        [src]="imageUrl"
+        alt="Article image"
+    >
+    <mat-card-content class="min-height">
+        <mat-card-subtitle>📅{{ updatedAt | date }}</mat-card-subtitle>
+        <mat-card-title class="description">{{ title }}</mat-card-title>
+        <p class="description">{{summary}}</p>
+    </mat-card-content>
+    <a [routerLink]="[id]">
+        <button mat-button>Read more →</button>
+    </a>
+</mat-card>
