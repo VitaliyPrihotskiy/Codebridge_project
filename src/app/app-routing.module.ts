@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { ARTICLES_FEATURE_KEY, reducer } from './store/articles.reducer';
 
 const routes: Routes = [
   {
@@ -13,7 +15,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+  ],
+  
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

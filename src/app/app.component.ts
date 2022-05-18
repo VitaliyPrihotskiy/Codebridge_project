@@ -1,15 +1,17 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
-import { MainService,Article } from './main.service';
+import { ChangeDetectionStrategy, Component} from '@angular/core';
+import { Store } from '@ngrx/store';
+import { loadArticles } from './store/articles.action';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [MainService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
  
+  constructor(private readonly store:Store){
+    this.store.dispatch(loadArticles())
+  }
 }
 

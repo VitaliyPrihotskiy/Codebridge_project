@@ -1,1 +1,32 @@
-<p>article-page works!</p>
+<main *ngIf="selectedArticle$ |async as article else noArticlesTemplate"
+>
+    <div class="header">
+        <img [src]="article.imageUrl">
+    </div>
+    <section>
+        <div class="content">
+            <h2>
+                {{article.header}}
+            </h2>
+            <div class="text-content">
+                <p>{{article.summary}}</p>
+                <p>{{article.summary}}</p>
+                <p>{{article.summary}}</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <ng-container *ngTemplateOutlet="backToHomePage"></ng-container>
+    </footer>
+</main>
+
+<ng-template #noArticlesTemplate>
+    No article found
+    <ng-container *ngTemplateOutlet="backToHomePage"></ng-container>
+</ng-template>
+
+<ng-template #backToHomePage>
+    <div class="back-arrow-container">
+        <a class="back-arrow" [routerLink]="''">← Back to home page</a>
+    </div>
+</ng-template>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 
 @Component({
@@ -15,10 +15,16 @@ export class ArticleCardComponent implements OnInit {
   @Input() imageUrl: string = "#";
   @Input() summary: string = "Summary ...";
   @Input() updatedAt: Date = new Date();
-  
-  constructor() { }
+  @Input() filterString: string = '';
 
   ngOnInit(): void {
+    // window.addEventListener('resize', () => {
+    //   let scaledItems = document.getElementsByClassName('scaled') as unknown as HTMLElement[];
+    //   scaledItems.forEach(item => {
+    //     let coeff=Math.min(window.screen.width/this.pageWidth,window.screen.height/this.pageHeight)
+    //     item.style.transform = `scale(${coeff});`
+    //   });
+    // })
   }
 
 }
