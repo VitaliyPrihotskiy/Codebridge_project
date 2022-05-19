@@ -28,7 +28,6 @@ import { environment } from '../environments/environment';
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 100, logOnly: environment.production })
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

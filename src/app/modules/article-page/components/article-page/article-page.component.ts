@@ -11,13 +11,12 @@ import { getSelectedArticle } from 'src/app/store/articles.selectors';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticlePageComponent implements OnInit, OnDestroy {
+  readonly selectedArticle$ = this.store.select(getSelectedArticle);
 
-
-  selectedArticle$ = this.store.select(getSelectedArticle);
-  
-
-  constructor(private readonly store: Store, private readonly route: ActivatedRoute) { }
-
+  constructor(
+    private readonly store: Store,
+    private readonly route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     const articleId = this.route.snapshot.paramMap.get('id');
@@ -25,6 +24,7 @@ export class ArticlePageComponent implements OnInit, OnDestroy {
       this.store.dispatch(setSelectedArticleId({ id: +articleId }));
     }
   }
+
   ngOnDestroy(): void {
     this.store.dispatch(resetSelectedArticleId());
   }

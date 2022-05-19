@@ -14,12 +14,7 @@
     >
         <mat-grid-tile *ngFor="let item of viewModel.articles">
             <app-article-card
-                [id]="item.id"
-                [title]="item.title"
-                [url]="item.url"
-                [imageUrl]="item.imageUrl"
-                [summary]="item.summary"
-                [updatedAt]="item.updatedAt"
+                [article]="item"
                 [filterString]="viewModel.filterString"
             ></app-article-card>
         </mat-grid-tile>

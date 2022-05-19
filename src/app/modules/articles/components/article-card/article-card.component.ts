@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Article } from 'src/app/models/articles.model';
 
 
 @Component({
@@ -8,13 +9,6 @@ import { ChangeDetectionStrategy, Component, Input} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticleCardComponent {
-
-  @Input() id: number = 0;
-  @Input() title: string = "Title";
-  @Input() url: string = "#";
-  @Input() imageUrl: string = "#";
-  @Input() summary: string = "Summary ...";
-  @Input() updatedAt: Date = new Date();
-  @Input() filterString: string = '';
-
+  @Input() article: Article | null = null;
+  @Input() filterString = '';
 }

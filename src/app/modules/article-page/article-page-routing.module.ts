@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArticlePageComponent } from './components/article-page/article-page.component';
 
-
 const routes: Routes = [
   {
     path:'',

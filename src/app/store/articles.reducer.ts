@@ -1,10 +1,18 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import { loadArticles, loadArticlesFailure, loadArticlesSuccess, resetSelectedArticleId, setFilterString, setSelectedArticleId } from "./articles.action";
+import { Article } from "../models/articles.model";
+import {
+    loadArticles,
+    loadArticlesFailure,
+    loadArticlesSuccess,
+    resetSelectedArticleId,
+    setFilterString,
+    setSelectedArticleId
+} from "./articles.action";
 
 export const ARTICLES_FEATURE_KEY = 'articles';
 
 export interface ArticlesState {
-    articles: any[];
+    articles: Article[];
     isLoading: boolean;
     error: unknown;
     filterString: string;
@@ -24,39 +32,31 @@ const articlesReducer = createReducer(
     on(loadArticles, (state) => ({
         ...state,
         isLoading: true,
-    })
-    ),
+    })),
     on(loadArticlesSuccess, (state, { articles }) => ({
         ...state,
         articles,
-        isLoading: false
-    })
-    ),
+        isLoading: false,
+        error: null
+    })),
     on(loadArticlesFailure, (state, { error }) => ({
         ...state,
         error,
         isLoading: false
-    })
-    ),
+    })),
     on(setFilterString, (state, { filterString }) => ({
         ...state,
         filterString
-    })
-    ),
+    })),
     on(setSelectedArticleId, (state, { id }) => ({
         ...state,
-        selectedArticleId:id
-    })
-    ),
+        selectedArticleId: id
+    })),
     on(resetSelectedArticleId, (state) => ({
         ...state,
-        selectedArticleId:initialState.selectedArticleId
-    })
-    ),
+        selectedArticleId: initialState.selectedArticleId
+    })),
 )
-
-
-
 
 export function reducer(state: ArticlesState, action: Action) {
     return articlesReducer(state, action);

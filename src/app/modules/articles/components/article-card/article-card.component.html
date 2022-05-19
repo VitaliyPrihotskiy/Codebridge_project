@@ -1,24 +1,23 @@
-<mat-card class="example-card">
-
+<mat-card
+    *ngIf="article"
+    class="example-card"
+>
     <img
         mat-card-image
-        [src]="imageUrl"
+        [src]="article.imageUrl"
         alt="Article image"
     >
-
     <mat-card-content class="min-height">
-
-        <mat-card-subtitle>📅{{ updatedAt | date }}</mat-card-subtitle>
-
+        <mat-card-subtitle>📅{{ article.updatedAt | date }}</mat-card-subtitle>
         <mat-card-title class="description">
-            <mat-card-content [innerHtml]="title | highlighter:filterString"></mat-card-content>
+            <mat-card-content [innerHtml]="article.title | highlighter:filterString"></mat-card-content>
         </mat-card-title>
-
-        <p class="description"  [innerHtml]="summary | highlighter:filterString"></p>
-
+        <p
+            class="description"
+            [innerHtml]="article.summary | highlighter:filterString"
+        ></p>
     </mat-card-content>
-
-    <a [routerLink]="[id]">
+    <a [routerLink]="[article.id]">
         <button mat-button>Read more →</button>
     </a>
 </mat-card>

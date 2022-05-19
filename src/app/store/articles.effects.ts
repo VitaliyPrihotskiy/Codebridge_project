@@ -8,11 +8,11 @@ import { loadArticles, loadArticlesFailure, loadArticlesSuccess } from "./articl
 export class ArticlesEffect {
 
     constructor(
-        private actions$: Actions,
+        private readonly actions$: Actions,
         private readonly articlesService: ArticlesService) {
     }
 
-    register$ = createEffect(() => this.actions$.pipe(
+    loadArticles$ = createEffect(() => this.actions$.pipe(
         ofType(loadArticles),
         switchMap(() => {
             return this.articlesService.getArticles()

@@ -6,15 +6,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HighlighterPipe } from './pipes/highlighter.pipe';
 
-
-
 @NgModule({
   declarations: [
     ArticleListComponent,
     ArticleCardComponent,
     HighlighterPipe
   ],
-  providers:[],
   imports: [
     CommonModule,
     ArticlesRoutingModule,

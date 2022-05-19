@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Article } from '../article';
+import { Article } from '../models/articles.model';
 
 function scoped(templateString: TemplateStringsArray) {
   return `Articles: ${templateString[0]}`;
@@ -25,10 +25,10 @@ export const setFilterString = createAction(
 );
 
 export const setSelectedArticleId = createAction(
-    scoped`Set Selected Article Id`,
-    props<{ id: number }>()
-  );
+  scoped`Set Selected Article Id`,
+  props<{ id: number }>()
+);
 
 export const resetSelectedArticleId = createAction(
-    scoped`Reset Selected Article Id`
-  );
+  scoped`Reset Selected Article Id`
+);

@@ -2,18 +2,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'highlighter',
-  pure:true
+  pure: true
 })
 export class HighlighterPipe implements PipeTransform {
+  transform(text: string, filterString: string): string {
+    if (!text) return filterString;
 
-  transform(value: any, args: any): unknown {
-    if(!args) return value;
-    
-      const re = new RegExp(args, 'igm');
-      value= value.replace(re, '<span class="highlighted-text">$&</span>');
-    
+    const stringRegexp = new RegExp(filterString, 'igm');
 
-      return value;
+    return text.replace(stringRegexp, '<span class="highlighted-text">$&</span>');
   }
-
 }
