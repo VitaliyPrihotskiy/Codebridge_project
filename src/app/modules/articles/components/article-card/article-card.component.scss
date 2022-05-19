@@ -1,8 +1,14 @@
 .example-card {
-    // max-width: 450px;
     width: 30vw;
     height: 30vw;
 }
+img {
+    height: 18vw;
+}
+.min-height {
+    height: 10vw;
+}
+
 
 .description {
     overflow-wrap: break-word;
@@ -11,17 +17,6 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
 }
-
-img {
-    // height: 270px;
-    height: 18vw;
-}
-
-.min-height {
-    // height: 145px;
-    height: 10vw;
-}
-
 ::ng-deep {
     .highlighted-text {
         background-color: yellow;

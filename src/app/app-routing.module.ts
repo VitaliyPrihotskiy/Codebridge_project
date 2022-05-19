@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { StoreModule } from '@ngrx/store';
-import { ARTICLES_FEATURE_KEY, reducer } from './store/articles.reducer';
 
 const routes: Routes = [
   {

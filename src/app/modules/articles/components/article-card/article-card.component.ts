@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input} from '@angular/core';
 
 
 @Component({
@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
   styleUrls: ['./article-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ArticleCardComponent implements OnInit {
+export class ArticleCardComponent {
 
   @Input() id: number = 0;
   @Input() title: string = "Title";
@@ -16,15 +16,5 @@ export class ArticleCardComponent implements OnInit {
   @Input() summary: string = "Summary ...";
   @Input() updatedAt: Date = new Date();
   @Input() filterString: string = '';
-
-  ngOnInit(): void {
-    // window.addEventListener('resize', () => {
-    //   let scaledItems = document.getElementsByClassName('scaled') as unknown as HTMLElement[];
-    //   scaledItems.forEach(item => {
-    //     let coeff=Math.min(window.screen.width/this.pageWidth,window.screen.height/this.pageHeight)
-    //     item.style.transform = `scale(${coeff});`
-    //   });
-    // })
-  }
 
 }

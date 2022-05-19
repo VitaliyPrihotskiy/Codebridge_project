@@ -1,14 +1,17 @@
-<main *ngIf="viewModel$ | async as viewModel" class="container border-success">
+<main *ngIf="viewModel$ | async as viewModel">
     <div class="filter">
-        <p class="filter-text">Filter by keywords</p>
+        <p>Filter by keywords</p>
         <input
             #inp
             [value]="viewModel.filterString"
             (input)="filter(inp.value)"
         >
-        <p class="filter-text">Results:{{viewModel.articles.length}}</p>
+        <p>Results:{{viewModel.articles.length}}</p>
     </div>
-    <mat-grid-list cols="3" rowHeight="1:1">
+    <mat-grid-list
+        cols="3"
+        rowHeight="1:1"
+    >
         <mat-grid-tile *ngFor="let item of viewModel.articles">
             <app-article-card
                 [id]="item.id"

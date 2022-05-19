@@ -1,32 +1,38 @@
-<main *ngIf="selectedArticle$ |async as article else noArticlesTemplate"
->
-    <div class="header">
+<main *ngIf="selectedArticle$ | async as article else noArticlesTemplate">
+    <div class="img_wrap">
         <img [src]="article.imageUrl">
     </div>
     <section>
         <div class="content">
-            <h2>
-                {{article.header}}
-            </h2>
+            <h2>{{article.title}}</h2>
             <div class="text-content">
+                <p>{{article.summary}}</p>
                 <p>{{article.summary}}</p>
                 <p>{{article.summary}}</p>
                 <p>{{article.summary}}</p>
             </div>
         </div>
+        <footer>
+            <ng-container *ngTemplateOutlet="backToHomePage"></ng-container>
+        </footer>
     </section>
-    <footer>
-        <ng-container *ngTemplateOutlet="backToHomePage"></ng-container>
-    </footer>
+
 </main>
 
 <ng-template #noArticlesTemplate>
-    No article found
-    <ng-container *ngTemplateOutlet="backToHomePage"></ng-container>
+    <section>
+        No article found
+        <ng-container *ngTemplateOutlet="backToHomePage"></ng-container>
+    </section>
 </ng-template>
 
 <ng-template #backToHomePage>
     <div class="back-arrow-container">
-        <a class="back-arrow" [routerLink]="''">← Back to home page</a>
+        <a
+            class="back-arrow"
+            [routerLink]="''"
+        >
+            ← Back to home page
+        </a>
     </div>
 </ng-template>

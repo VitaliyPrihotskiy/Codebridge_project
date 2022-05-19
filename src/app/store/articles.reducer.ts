@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import { loadArticles, loadArticlesFailure, loadArticlesSuccess, setFilterString, setSelectedArticleId } from "./articles.action";
+import { loadArticles, loadArticlesFailure, loadArticlesSuccess, resetSelectedArticleId, setFilterString, setSelectedArticleId } from "./articles.action";
 
 export const ARTICLES_FEATURE_KEY = 'articles';
 
@@ -43,10 +43,14 @@ const articlesReducer = createReducer(
         filterString
     })
     ),
-    
     on(setSelectedArticleId, (state, { id }) => ({
         ...state,
         selectedArticleId:id
+    })
+    ),
+    on(resetSelectedArticleId, (state) => ({
+        ...state,
+        selectedArticleId:initialState.selectedArticleId
     })
     ),
 )

@@ -39,6 +39,7 @@ export const getSelectedArticle = createSelector(
     }
 )
 
+
 function filter(input: string, itemList:any[]) {
     input=input.toLowerCase();
     let twoMatches=itemList.filter(e => e.title.toLowerCase().includes(input) && e.summary.toLowerCase().includes(input));

@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { setSelectedArticleId } from 'src/app/store/articles.action';
+import { resetSelectedArticleId, setSelectedArticleId } from 'src/app/store/articles.action';
 import { getSelectedArticle } from 'src/app/store/articles.selectors';
 
 @Component({
@@ -10,10 +10,11 @@ import { getSelectedArticle } from 'src/app/store/articles.selectors';
   styleUrls: ['./article-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ArticlePageComponent implements OnInit {
+export class ArticlePageComponent implements OnInit, OnDestroy {
 
 
   selectedArticle$ = this.store.select(getSelectedArticle);
+  
 
   constructor(private readonly store: Store, private readonly route: ActivatedRoute) { }
 
@@ -24,5 +25,7 @@ export class ArticlePageComponent implements OnInit {
       this.store.dispatch(setSelectedArticleId({ id: +articleId }));
     }
   }
-
+  ngOnDestroy(): void {
+    this.store.dispatch(resetSelectedArticleId());
+  }
 }
