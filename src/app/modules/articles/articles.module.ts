@@ -5,6 +5,8 @@ import { ArticleCardComponent, ArticleListComponent } from './components';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HighlighterPipe } from './pipes/highlighter.pipe';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { HighlighterPipe } from './pipes/highlighter.pipe';
     ArticlesRoutingModule,
     MatCardModule,
     MatGridListModule,
+    MatButtonModule,
+    FlexLayoutModule
   ]
 })
 export class ArticlesModule { }

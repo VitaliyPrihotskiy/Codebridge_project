@@ -1,9 +1,11 @@
 import { Action, createReducer, on } from "@ngrx/store";
 import { Article } from "../models/articles.model";
 import {
+    loadArticleFailure,
     loadArticles,
     loadArticlesFailure,
     loadArticlesSuccess,
+    loadArticleSuccess,
     resetSelectedArticleId,
     setFilterString,
     setSelectedArticleId
@@ -39,10 +41,16 @@ const articlesReducer = createReducer(
         isLoading: false,
         error: null
     })),
-    on(loadArticlesFailure, (state, { error }) => ({
+    on(loadArticlesFailure, loadArticleFailure, (state, { error }) => ({
         ...state,
         error,
         isLoading: false
+    })),
+    on(loadArticleSuccess, (state, { article }) => ({
+        ...state,
+        articles: [...state.articles, article],
+        isLoading: false,
+        error: null
     })),
     on(setFilterString, (state, { filterString }) => ({
         ...state,

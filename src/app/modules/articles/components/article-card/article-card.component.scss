@@ -1,13 +1,12 @@
 .example-card {
-    width: 30vw;
-    height: 30vw;
+    // width: 30vw;
+    height: 450px;
 }
+
 img {
-    height: 18vw;
+    height: 200px;
 }
-.min-height {
-    height: 10vw;
-}
+
 
 
 .description {
@@ -16,9 +15,30 @@ img {
     -webkit-line-clamp: 3;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+
+    color: #363636;
 }
+
 ::ng-deep {
     .highlighted-text {
-        background-color: yellow;
+        background-color: #bcbc7d;
     }
+}
+
+a {
+    position: absolute;
+    bottom: 0;
+    padding: 16px 0;
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: #363636;
 }

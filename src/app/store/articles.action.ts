@@ -19,6 +19,16 @@ export const loadArticlesFailure = createAction(
   props<{ error: unknown }>()
 );
 
+export const loadArticleSuccess = createAction(
+  scoped`Load Article Success`,
+  props<{ article: Article }>()
+);
+
+export const loadArticleFailure = createAction(
+  scoped`Load Article Failure`,
+  props<{ error: unknown }>()
+);
+
 export const setFilterString = createAction(
   scoped`Set Filter String`,
   props<{ filterString: string }>()
